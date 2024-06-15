@@ -1,0 +1,33 @@
+:root {
+  --box-background: #303030;
+}
+
+.box {
+  text-align: start;
+  padding: 2em;
+  background-color: var(--box-background);
+  border-radius: 5px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --box-background: #e4e4e4;
+  }
+}
+
+.flowContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 15rem;
+}
+
+.flowItemHeading {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 2rem;
+}
