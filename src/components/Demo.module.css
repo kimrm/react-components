@@ -1,5 +1,7 @@
 :root {
   --box-background: #303030;
+  --code-background: #303030;
+  --section-background: #212121;
 }
 
 .box {
@@ -12,6 +14,8 @@
 @media (prefers-color-scheme: light) {
   :root {
     --box-background: #e4e4e4;
+    --code-background: #dbdbdb;
+    --section-background: #f1f1f1;
   }
 }
 
@@ -30,4 +34,41 @@
 
 p {
   margin-bottom: 2rem;
+}
+
+textarea {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.codebox {
+  background-color: var(--code-background);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  text-align: start;
+  max-height: 200px;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+section {
+  background-color: var(--section-background);
+  margin-block: 5rem;
+  padding: 2rem;
+}
+
+h3 {
+  text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    padding: 4rem;
+    width: 600px;
+  }
 }
