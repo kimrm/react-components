@@ -28,7 +28,12 @@ export const Tab = ({ children, tabIndex }: TabProps) => {
       <TabButtons>
         {React.Children.map(children, (child, i) =>
           React.isValidElement(child) && "title" in child.props ? (
-            <button key={i} onClick={() => handleClick(i)}>
+            <button
+              type="button"
+              key={i}
+              onClick={() => handleClick(i)}
+              className="active"
+            >
               {child.props.title}
             </button>
           ) : null

@@ -4,3 +4,8 @@
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+button.active {
+  background-color: blue;
+  outline: 4px auto -webkit-focus-ring-color;
+}

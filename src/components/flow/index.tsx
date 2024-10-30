@@ -41,13 +41,15 @@ export const FlowScreen = ({
   <div>
     {children}
     <div className={styles.actionButtons}>
-      <button onClick={prevAction} disabled={!prevAction}>
+      <button type="button" onClick={prevAction} disabled={!prevAction}>
         Previous
       </button>
       {finishAction ? (
-        <button onClick={finishAction}>Finish</button>
+        <button type="button" onClick={finishAction}>
+          Finish
+        </button>
       ) : (
-        <button onClick={nextAction} disabled={!nextAction}>
+        <button type="button" onClick={nextAction} disabled={!nextAction}>
           Next
         </button>
       )}
