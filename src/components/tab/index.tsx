@@ -45,8 +45,8 @@ export const Tab = ({ children, tabIndex }: TabProps) => {
   );
 };
 
-export const TabPage = ({ children, title }: TabPageProps) => {
-  return <>{children}</>;
+export const TabPage = (props: TabPageProps) => {
+  return <>{props.children}</>;
 };
 
 const TabButtons = ({ children }: TabButtonsProps) => {
