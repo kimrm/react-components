@@ -17,6 +17,7 @@ function App() {
       </section>
       <section>
         <h2>Simple Image Gallery Component</h2>
+        <p>Work in progress</p>
         <ImageGalleryDemo />
       </section>
     </>
