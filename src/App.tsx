@@ -11,11 +11,13 @@ function App() {
         <SideNavigation />
       </div>
       <div>
-        <h1>Components library</h1>
-        <p>
-          This is just a personal collection of React components I&apos;m
-          creating, where I try out new things.
-        </p>
+        <div className="intro">
+          <h1>Components library</h1>
+          <p>
+            This is just a personal collection of React components I&apos;m
+            creating, where I try out new things.
+          </p>
+        </div>
         <section id="flow">
           <h2>Simple Flow Component</h2>
           <FlowDemo />
