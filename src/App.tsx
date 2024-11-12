@@ -3,10 +3,12 @@ import { FlowDemo } from "./components/FlowDemo";
 import ImageGalleryDemo from "./components/ImageGalleryDemo";
 import { TabDemo } from "./components/TabDemo";
 import SideNavigation from "./components/ui/sideNavigation";
+import MobileMenu from "./components/ui/mobileMenu";
 
 function App() {
   return (
     <div className="app-container">
+      <MobileMenu />
       <div>
         <SideNavigation />
       </div>
