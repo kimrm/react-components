@@ -2,17 +2,24 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./Styles.module.css";
 
 interface ImageGalleryProps {
+  config: Config;
   children: React.ReactNode;
 }
 
 interface FullSizeImageProps {
   image: React.ReactElement | null;
+  config: Config;
   onClose: () => void;
 }
 
-function FullSizeImage({ image, onClose }: FullSizeImageProps) {
+interface Config {
+  closeButtonLabel: string;
+}
+
+function FullSizeImage({ image, config, onClose }: FullSizeImageProps) {
   const src = image?.props.src || "";
   const alt = image?.props.alt || "Full-size image";
+  const closeButtonLabel = config.closeButtonLabel;
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -53,14 +60,19 @@ function FullSizeImage({ image, onClose }: FullSizeImageProps) {
       onClick={handleOutsideClick}
     >
       <img src={src} alt={alt} />
-      <button tabIndex={1} className={styles.close} onClick={handleClose}>
-        Close
+      <button
+        tabIndex={1}
+        className={styles.close}
+        aria-label="Close dialog"
+        onClick={handleClose}
+      >
+        {closeButtonLabel}
       </button>
     </dialog>
   );
 }
 
-export default function ImageGallery({ children }: ImageGalleryProps) {
+export default function ImageGallery({ config, children }: ImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<React.ReactElement | null>(
     null
   );
@@ -73,16 +85,18 @@ export default function ImageGallery({ children }: ImageGalleryProps) {
     <>
       {selectedImage && (
         <FullSizeImage
+          config={config}
           image={selectedImage}
           onClose={() => setSelectedImage(null)}
         />
       )}
       <div className={styles.gallery}>
         {React.Children.map(children, (child, i) => {
-          if (React.isValidElement(child)) {
+          if (React.isValidElement(child) && child.type === "img") {
             return (
               <button key={i} onClick={() => handleClick(child)}>
-                {child}
+                <h1>{child.props.title}</h1>
+                <div>{child}</div>
               </button>
             );
           }
